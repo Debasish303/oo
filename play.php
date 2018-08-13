@@ -9,7 +9,7 @@ class Ship {
     }
     public function getName()
     {
-        return $this->name;
+        return '<strong>'.$this->name.'</strong>';
     }
     public function getNameAndSpecs($useShortFormat) {
         if ($useShortFormat) {
@@ -31,11 +31,13 @@ class Ship {
             );
         }
     }
+
+    public function doesGivenShipHaveMoreStrength($givenShip) {
+        return $givenShip->strength > $this->strength;
+    }
 }
 
 function printShipSummary($someShip) {
-    echo 'Ship name: '.$someShip->name;
-    echo "<hr/>";
     echo $someShip->sayHello();
     echo "<hr/>";
     echo $someShip->getName();
@@ -43,9 +45,27 @@ function printShipSummary($someShip) {
     echo $someShip->getNameAndSpecs(false);
     echo "<hr/>";
     echo $someShip->getNameAndSpecs(true);
+    echo "<hr/>";
+    echo 'Ship name: '.$someShip->name;
 }
 $myShip = new Ship();
 $myShip->name = 'Jedi Starship';
 $myShip->weaponPower = 10;
+$myShip->strength = 10;
+
+$otherShip = new Ship();
+$otherShip->name = 'Imperial Shuttle';
+$otherShip->weaponPower = 5;
+$otherShip->strength = 50;
+
 printShipSummary($myShip);
+echo "<hr/>";
+printShipSummary($otherShip);
+echo "<hr/>";
+
+if ($myShip->doesGivenShipHaveMoreStrength($otherShip)) {
+    echo $otherShip->name. ' has more strength.';
+} else {
+    echo $myShip->name. ' has more strength.';
+}
 
