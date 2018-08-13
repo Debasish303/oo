@@ -37,6 +37,9 @@ class Ship {
     }
 }
 
+/**
+ * @param Ship $someShip
+ */
 function printShipSummary($someShip) {
     echo $someShip->sayHello();
     echo "<hr/>";
@@ -48,6 +51,7 @@ function printShipSummary($someShip) {
     echo "<hr/>";
     echo 'Ship name: '.$someShip->name;
 }
+
 $myShip = new Ship();
 $myShip->name = 'Jedi Starship';
 $myShip->weaponPower = 10;
