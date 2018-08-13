@@ -4,8 +4,17 @@ class Ship {
     private $weaponPower = 0;
     private $jediFactor = 0;
     private $strength = 0;
+    private $underRepair;
+    public function __construct() 
+    {
+        $this->underRepair = mt_rand(1, 100) < 30;
+    }
     public function sayHello() {
         echo "<strong>Battle ships</strong>";
+    }
+    public function isFunctional()
+    {
+        return !$this->underRepair;
     }
     
     public function getNameAndSpecs($useShortFormat = false) {
