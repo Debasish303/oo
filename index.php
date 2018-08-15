@@ -2,7 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require __DIR__.'/bootstrap.php';
-$shipLoader = new ShipLoader();
+$shipLoader = new ShipLoader(
+    $configuration['db_dsn'],
+    $configuration['db_user'],
+    $configuration['db_pass']
+);
 $ships = $shipLoader->getShips();
 
 $errorMessage = '';
