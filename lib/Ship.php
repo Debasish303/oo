@@ -5,8 +5,9 @@ class Ship {
     private $jediFactor = 0;
     private $strength = 0;
     private $underRepair;
-    public function __construct() 
+    public function __construct($name) 
     {
+        $this->name = $name;
         $this->underRepair = mt_rand(1, 100) < 30;
     }
     public function sayHello() {
@@ -46,10 +47,7 @@ class Ship {
     /**
      * Setter functions for name, weapon power , factor and strength
      */
-    public function setName($name) 
-    {
-        $this->name = $name;
-    }
+
     public function setweaponPower($Power)
     {
         $this->weaponPower = $Power;
