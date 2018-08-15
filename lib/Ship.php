@@ -1,5 +1,6 @@
 <?php
 class Ship {
+    private $id;
     private $name;
     private $weaponPower = 0;
     private $jediFactor = 0;
@@ -63,25 +64,59 @@ class Ship {
         }
         $this->strength = $Strength;
     }
+    
+    /**
+     * 
+     * @param integer $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }        
 
     /**
-     * Getter classes for power,factor and strength
+     * 
+     * @return mixed
      */
     public function getName()
     {
         return '<strong>'.$this->name.'</strong>';
     }
+    
+    /**
+     * 
+     * @return integer
+     */
     public function getweaponPower()
     {
         return $this->weaponPower;
     }
+    
+    /**
+     * 
+     * @return integer
+     */
     public function getJediFactor() 
     {
         return $this->jediFactor;
     }
+    
+    /**
+     * 
+     * @return integer
+     */
     public function getStrength()
     {
         return $this->strength;
+    }
+    
+    /**
+     * 
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
 }
