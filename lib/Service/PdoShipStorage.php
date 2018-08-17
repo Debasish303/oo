@@ -1,6 +1,6 @@
 <?php
 
-class PdoShipStorage
+class PdoShipStorage implements ShipStorageInterface
 {
     private $pdo;
     
@@ -16,7 +16,7 @@ class PdoShipStorage
         $shipArray = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $shipArray;
     }
-    public function fetchSingleShipData()
+    public function fetchSingleShipData($id)
     {
         $pdo = $this->pdo;
         $statement = $pdo->prepare('SELECT * FROM ship WHERE id = :id');

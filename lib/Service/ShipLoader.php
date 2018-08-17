@@ -7,7 +7,7 @@ class ShipLoader
 {
     private $shipStorage;
    
-    public function __construct(PdoShipStorage $shipStorage) 
+    public function __construct(ShipStorageInterface $shipStorage) 
     {
         $this->shipStorage = $shipStorage;
     }
